@@ -2,13 +2,14 @@
 #include <iostream>
 #include <thread>
 #include <vector>
+
 using namespace std;
 
 #include <stdio.h>
 #include <Windows.h>
 
 int nScreenWidth = 120;			// Console Screen Size X (columns)
-int nScreenHeight = 30;			// Console Screen Size Y (rows)
+int nScreenHeight = 40;			// Console Screen Size Y (rows)
 wstring tetromino[7];
 int nFieldWidth = 12;
 int nFieldHeight = 18;
@@ -192,13 +193,15 @@ int main()
 		// Draw Field
 		for (int x = 0; x < nFieldWidth; x++)
 			for (int y = 0; y < nFieldHeight; y++)
+				//screen[(y + 2) * nScreenWidth + (x + 2)] = L" ■□▣▤▥▦▩=#"[pField[y * nFieldWidth + x]];
 				screen[(y + 2) * nScreenWidth + (x + 2)] = L" ■□▣▤▥▦▩=#"[pField[y * nFieldWidth + x]];
 
 		// Draw Current Piece
 		for (int px = 0; px < 4; px++)
 			for (int py = 0; py < 4; py++)
 				if (tetromino[nCurrentPiece][Rotate(px, py, nCurrentRotation)] != L'.')
-					screen[(nCurrentY + py + 2) * nScreenWidth + (nCurrentX + px + 2)] = nCurrentPiece + 65;
+					screen[(nCurrentY + py + 2) * nScreenWidth + (nCurrentX + px + 2)] = L"■□▣▤▥▦▩"[nCurrentPiece];
+
 
 		// Draw Score
 		swprintf_s(&screen[2 * nScreenWidth + nFieldWidth + 6], 16, L"SCORE: %8d", nScore);
@@ -207,7 +210,7 @@ int main()
 		if (!vLines.empty())
 		{
 			// Display Frame (cheekily to draw lines)
-			WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight , { 0,0 }, &dwBytesWritten);
+			WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight, { 0,0 }, &dwBytesWritten);
 			this_thread::sleep_for(400ms); // Delay a bit
 
 			for (auto& v : vLines)
