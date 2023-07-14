@@ -78,6 +78,7 @@ int main()
 	// Create Screen Buffer
 	wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
 	for (int i = 0; i < nScreenWidth * nScreenHeight; i++) screen[i] = L' ';
+	
 	HANDLE hConsole = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
 	SetConsoleActiveScreenBuffer(hConsole);
 	DWORD dwBytesWritten = 0;
@@ -194,14 +195,13 @@ int main()
 		for (int x = 0; x < nFieldWidth; x++)
 			for (int y = 0; y < nFieldHeight; y++)
 				//screen[(y + 2) * nScreenWidth + (x + 2)] = L" ■□▣▤▥▦▩=#"[pField[y * nFieldWidth + x]];
-				screen[(y + 2) * nScreenWidth + (x + 2)] = L" ■□▣▤▥▦▩=#"[pField[y * nFieldWidth + x]];
+				screen[(y + 2) * nScreenWidth + (x + 2)] = L" ■□▣▤▥▦▩=❏"[pField[y * nFieldWidth + x]];
 
 		// Draw Current Piece
 		for (int px = 0; px < 4; px++)
 			for (int py = 0; py < 4; py++)
 				if (tetromino[nCurrentPiece][Rotate(px, py, nCurrentRotation)] != L'.')
 					screen[(nCurrentY + py + 2) * nScreenWidth + (nCurrentX + px + 2)] = L"■□▣▤▥▦▩"[nCurrentPiece];
-
 
 		// Draw Score
 		swprintf_s(&screen[2 * nScreenWidth + nFieldWidth + 6], 16, L"SCORE: %8d", nScore);
@@ -226,6 +226,7 @@ int main()
 
 		// Display Frame
 		WriteConsoleOutputCharacter(hConsole, screen, nScreenWidth * nScreenHeight, { 0,0 }, &dwBytesWritten);
+		FillConsoleOutputAttribute(hConsole, 2, nScreenWidth * nScreenHeight, { 0,0 }, &dwBytesWritten);
 	}
 
 	// End
