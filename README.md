@@ -1,12 +1,12 @@
 # Tetris
-Tetris game on terminal without external framework or library. 
+[Tetris](https://en.wikipedia.org/wiki/Tetris#Gameplay) game on terminal without external framework or library. 
 
 Written on c++ with visual studio to build. Doesn't need anything, just run.
 
 You can colourise the field and change characters to customise.
 
 You may need to change settings to [UTF-8](https://learn.microsoft.com/en-us/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8?view=msvc-170)
- because of special characters.
+ because of [special characters](https://www.fileformat.info/info/charset/UTF-8/list.htm).
 
 
 Here is the screenshot of Fallout Pip-Boy tetris:
