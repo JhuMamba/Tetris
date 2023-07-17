@@ -16,3 +16,15 @@ Here is the screenshot of Fallout Pip-Boy tetris:
 Here's the plain white tetris without much modification:
 
 ![tetris1](https://github.com/JhuMamba/Tetris/assets/73741766/727f3b66-0709-4a80-93b3-71d66e5691d9)
+
+/*
+This work is heavily inspired by Javidx9 AKA OneLoneCoder
+
+License
+-------
+Copyright (C) 2018  Javidx9
+Original works located at:
+https://www.github.com/onelonecoder
+https://www.onelonecoder.com
+https://www.youtube.com/javidx9
+*/
