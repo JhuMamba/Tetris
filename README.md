@@ -23,8 +23,12 @@ This work is heavily inspired by Javidx9 AKA OneLoneCoder
 License
 -------
 Copyright (C) 2018  Javidx9
+
 Original works located at:
+
 https://www.github.com/onelonecoder
+
 https://www.onelonecoder.com
+
 https://www.youtube.com/javidx9
 */
